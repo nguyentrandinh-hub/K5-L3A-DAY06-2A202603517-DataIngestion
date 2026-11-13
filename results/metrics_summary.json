@@ -1,0 +1,89 @@
+{
+  "A": {
+    "dev": {
+      "total": 15,
+      "hit_at_1": 3,
+      "hit_at_1_rate": 0.2,
+      "evidence_hit_at_3": 5,
+      "evidence_hit_at_3_rate": 0.3333,
+      "filter_questions": 3,
+      "filter_compliant": 2
+    },
+    "test": {
+      "total": 5,
+      "hit_at_1": 2,
+      "hit_at_1_rate": 0.4,
+      "evidence_hit_at_3": 2,
+      "evidence_hit_at_3_rate": 0.4,
+      "filter_questions": 2,
+      "filter_compliant": 2
+    },
+    "all": {
+      "total": 20,
+      "hit_at_1": 5,
+      "hit_at_1_rate": 0.25,
+      "evidence_hit_at_3": 7,
+      "evidence_hit_at_3_rate": 0.35,
+      "filter_questions": 5,
+      "filter_compliant": 4
+    }
+  },
+  "B": {
+    "dev": {
+      "total": 15,
+      "hit_at_1": 7,
+      "hit_at_1_rate": 0.4667,
+      "evidence_hit_at_3": 12,
+      "evidence_hit_at_3_rate": 0.8,
+      "filter_questions": 3,
+      "filter_compliant": 3
+    },
+    "test": {
+      "total": 5,
+      "hit_at_1": 3,
+      "hit_at_1_rate": 0.6,
+      "evidence_hit_at_3": 3,
+      "evidence_hit_at_3_rate": 0.6,
+      "filter_questions": 2,
+      "filter_compliant": 2
+    },
+    "all": {
+      "total": 20,
+      "hit_at_1": 10,
+      "hit_at_1_rate": 0.5,
+      "evidence_hit_at_3": 15,
+      "evidence_hit_at_3_rate": 0.75,
+      "filter_questions": 5,
+      "filter_compliant": 5
+    }
+  },
+  "C": {
+    "dev": {
+      "total": 15,
+      "hit_at_1": 7,
+      "hit_at_1_rate": 0.4667,
+      "evidence_hit_at_3": 12,
+      "evidence_hit_at_3_rate": 0.8,
+      "filter_questions": 3,
+      "filter_compliant": 3
+    },
+    "test": {
+      "total": 5,
+      "hit_at_1": 3,
+      "hit_at_1_rate": 0.6,
+      "evidence_hit_at_3": 3,
+      "evidence_hit_at_3_rate": 0.6,
+      "filter_questions": 2,
+      "filter_compliant": 2
+    },
+    "all": {
+      "total": 20,
+      "hit_at_1": 10,
+      "hit_at_1_rate": 0.5,
+      "evidence_hit_at_3": 15,
+      "evidence_hit_at_3_rate": 0.75,
+      "filter_questions": 5,
+      "filter_compliant": 5
+    }
+  }
+}
