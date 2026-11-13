@@ -1,0 +1,12 @@
+{
+  "index_url": "https://aistudio.google.com/llms.txt",
+  "candidate_links_found": 282,
+  "valid_units_saved": 40,
+  "skipped_count": 1,
+  "skipped_details": [
+    {
+      "url": "https://aistudio.google.com/docs/thought-signatures.md",
+      "reason": "Too short (1200 < 1500 chars)"
+    }
+  ]
+}

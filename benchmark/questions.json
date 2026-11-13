@@ -1,0 +1,240 @@
+{
+  "benchmark_version": "1.0",
+  "selection_criteria_before_test": "Select the winning strategy based on dev split performance: (1) highest Evidence Hit@3 on dev, (2) highest Hit@1 on dev as tie-breaker, (3) chunk coherence and ingestion/query resource trade-offs.",
+  "split_counts": {
+    "dev": 15,
+    "test": 5
+  },
+  "questions": [
+    {
+      "id": "q01",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Which command-line tool lets AI coding agents search and install Gemini agent skills from the google-gemini/gemini-skills repository?",
+      "expected_answer": "Use skills.sh (`npx skills add google-gemini/gemini-skills --list` or `--skill <skill-name> --global`) or Context7 (`npx ctx7 skills install /google-gemini/gemini-skills <skill-name>`).",
+      "gold_source_id": "gemini-doc-01",
+      "gold_page": 1,
+      "evidence_quote": "npx skills add google-gemini/gemini-skills --list",
+      "filter": null
+    },
+    {
+      "id": "q02",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "What happens to the Gemini API CLI (`gemini-api`) output when you pass `--dry-run`?",
+      "expected_answer": "`--dry-run` validates inputs, redacts credentials, and previews the HTTP request offline.",
+      "gold_source_id": "gemini-doc-06",
+      "gold_page": 6,
+      "evidence_quote": "`--dry-run` validates inputs, redacts credentials, and previews the HTTP request offline.",
+      "filter": null
+    },
+    {
+      "id": "q03",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "Starting May 28, 2026, what kind of API keys are created by default in Google AI Studio, and what happens to unrestricted standard keys?",
+      "expected_answer": "All new API keys are automatically created as authorization (auth) keys, and the Gemini API rejects requests from unrestricted standard keys.",
+      "gold_source_id": "gemini-doc-04",
+      "gold_page": 4,
+      "evidence_quote": "Starting May 28, 2026, all new API keys created in\n  Google AI Studio are automatically created as auth keys.",
+      "filter": null
+    },
+    {
+      "id": "q04",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "In the models_and_pricing section, what is the context window and introductory 1M-token price for Gemini 4 Carbon?",
+      "expected_answer": "Gemini 4 Carbon has a 1M unified tokens context window and an introductory price of $2.00 / $10.00 per 1M tokens through Nov 30.",
+      "gold_source_id": "gemini-doc-07",
+      "gold_page": 7,
+      "evidence_quote": "*   *Price (1M)* **$2.00 / $10.00 (intro thru Nov 30)**",
+      "filter": {
+        "section": "models_and_pricing"
+      }
+    },
+    {
+      "id": "q05",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "Which model should developers migrate to now that Veo 3.1 Preview has been shut down in the Gemini API?",
+      "expected_answer": "Developers should migrate to Gemini Omni Flash (`gemini-omni-1.2-flash`) or the GA models available through the Gemini Enterprise Agent Platform.",
+      "gold_source_id": "gemini-doc-18",
+      "gold_page": 18,
+      "evidence_quote": "Use [Gemini Omni Flash](/docs/omni) (`gemini-omni-1.2-flash`) as your model for\nvideo generation and conversational video editing in the Gemini API.",
+      "filter": null
+    },
+    {
+      "id": "q06",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "In Gemini 4 models, how does the API behave if your input tokens plus `max_output_tokens` exceed 1,048,576 tokens?",
+      "expected_answer": "The API automatically caps the output limit to the remaining space in the context window (1,048,576 minus your input tokens).",
+      "gold_source_id": "gemini-doc-25",
+      "gold_page": 25,
+      "evidence_quote": "If your input tokens plus `max_output_tokens` exceed 1,048,576 tokens, the API automatically caps the output limit to the remaining space in the context window (`1,048,576` minus your input tokens).",
+      "filter": null
+    },
+    {
+      "id": "q07",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "What are the two fields contained in every `thought` step returned by the Interactions API?",
+      "expected_answer": "Every `thought` step contains `signature` (required) and `summary` (optional).",
+      "gold_source_id": "gemini-doc-22",
+      "gold_page": 22,
+      "evidence_quote": "An encrypted representation of the model's internal reasoning state. Always present, even when the model performs minimal reasoning.",
+      "filter": null
+    },
+    {
+      "id": "q08",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "How does the Paid tier of the Gemini Developer API differ from the Free tier regarding user content privacy and batch processing?",
+      "expected_answer": "In the Paid tier, content is not used to improve Google's products, and users get access to Context caching and the Batch API (50% cost reduction).",
+      "gold_source_id": "gemini-doc-05",
+      "gold_page": 5,
+      "evidence_quote": "Content **not** used to improve our products",
+      "filter": null
+    },
+    {
+      "id": "q09",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "In the tools_and_agents section, how should managed agents store and use external secrets without exposing them inside the sandbox?",
+      "expected_answer": "Store secrets as managed credentials and reference them by ID so the egress proxy injects them at request time and they are never exposed inside the sandbox.",
+      "gold_source_id": "gemini-doc-27",
+      "gold_page": 27,
+      "evidence_quote": "Store\nsecrets as managed credentials and reference them by ID, so the egress proxy\ninjects them at request time and they are never exposed inside the sandbox.",
+      "filter": {
+        "section": "tools_and_agents"
+      }
+    },
+    {
+      "id": "q10",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Which HTTP status code and error code are returned when your Prepay credit balance is depleted?",
+      "expected_answer": "HTTP 402 Payment Required with the error code `payment_required`.",
+      "gold_source_id": "gemini-doc-37",
+      "gold_page": 37,
+      "evidence_quote": "| `payment_required` | 402 Payment Required | Your Prepay credit balance is depleted.",
+      "filter": null
+    },
+    {
+      "id": "q11",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "Which libraries do the Google GenAI SDKs support for defining Structured Outputs schemas in Python and JavaScript?",
+      "expected_answer": "They allow defining schemas using Pydantic in Python and Zod in JavaScript, in addition to JSON Schema in the REST API.",
+      "gold_source_id": "gemini-doc-23",
+      "gold_page": 23,
+      "evidence_quote": "In addition to supporting JSON Schema in the REST API, the Google GenAI SDKs\nallow defining schemas using\n[Pydantic](https://docs.pydantic.dev/latest/) (Python) and\n[Zod](https://zod.dev/) (JavaScript).",
+      "filter": null
+    },
+    {
+      "id": "q12",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Up to how many pages can Gemini models process in a PDF document using native vision?",
+      "expected_answer": "Up to 1000 pages.",
+      "gold_source_id": "gemini-doc-20",
+      "gold_page": 20,
+      "evidence_quote": "Analyze and interpret content, including text, images, diagrams,\n  charts, and tables, even in long documents up to 1000 pages.",
+      "filter": null
+    },
+    {
+      "id": "q13",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "What are the three primary use cases for function calling with the Gemini API?",
+      "expected_answer": "Take Actions (interact with external systems), Augment Knowledge (access external databases/APIs), and Extend Capabilities (use external tools for computations).",
+      "gold_source_id": "gemini-doc-24",
+      "gold_page": 24,
+      "evidence_quote": "Function calling has 3 primary use cases:",
+      "filter": null
+    },
+    {
+      "id": "q14",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "In the getting_started section, which transport protocol and SDK method are used to open a Gemini Live API session?",
+      "expected_answer": "The Gemini Live API uses WebSockets and is opened asynchronously via `client.aio.live.connect(model=model, config=config)`.",
+      "gold_source_id": "gemini-doc-35",
+      "gold_page": 35,
+      "evidence_quote": "The Gemini Live API uses WebSockets for real-time communication.",
+      "filter": {
+        "section": "getting_started"
+      }
+    },
+    {
+      "id": "q15",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "Which API version do the latest Google Gen AI SDKs default to starting November 2026, and what happens if you call a v1beta-only feature without changing it?",
+      "expected_answer": "They default to `v1`, and calls to `v1beta`-only features (such as Live API, explicit context caching, or managed agents) fail until you set the API version to `v1beta`.",
+      "gold_source_id": "gemini-doc-39",
+      "gold_page": 39,
+      "evidence_quote": "Starting with the November 2026 major\n  releases, the Google Gen AI SDKs call `v1` unless you set a version.",
+      "filter": null
+    },
+    {
+      "id": "q16",
+      "split": "test",
+      "type": "truc_tiep",
+      "question": "Which Gemini 4 model is described as fast and efficient for everyday coding and agentic workflows, and what is its 1M-token price?",
+      "expected_answer": "Gemini 4 Hydrogen (`gemini-4-hydrogen`), priced at $1.50 / $7.50 per 1M tokens.",
+      "gold_source_id": "gemini-doc-07",
+      "gold_page": 7,
+      "evidence_quote": "*   *Model ID* **`gemini-4-hydrogen`**\n  *   *Price (1M)* **$1.50 / $7.50**",
+      "filter": null
+    },
+    {
+      "id": "q17",
+      "split": "test",
+      "type": "metadata_filter",
+      "question": "In the api_reference section, what is the difference between `rate_limit_exceeded` and `quota_exceeded` error codes?",
+      "expected_answer": "Both return HTTP 429 Too Many Requests, but `rate_limit_exceeded` means exceeding per-minute/per-second request or token limits (retry with exponential backoff), while `quota_exceeded` means exceeding the daily quota (wait for reset or request an increase).",
+      "gold_source_id": "gemini-doc-37",
+      "gold_page": 37,
+      "evidence_quote": "| `quota_exceeded` | 429 Too Many Requests | You have exceeded your daily quota.",
+      "filter": {
+        "section": "api_reference"
+      }
+    },
+    {
+      "id": "q18",
+      "split": "test",
+      "type": "paraphrase",
+      "question": "How are non-PDF text formats like TXT, Markdown, or HTML handled by Gemini compared to PDF files?",
+      "expected_answer": "Non-PDF documents such as TXT, Markdown, or HTML are processed as plain text, which eliminates visual context like charts or formatting.",
+      "gold_source_id": "gemini-doc-20",
+      "gold_page": 20,
+      "evidence_quote": "Other non-PDF documents, such as TXT, Markdown, or HTML files, are processed as\nplain text, which eliminates context like charts or formatting.",
+      "filter": null
+    },
+    {
+      "id": "q19",
+      "split": "test",
+      "type": "dieu_kien",
+      "question": "What happens if your coding agent does not have the Gemini Docs MCP server installed when using a Gemini agent skill?",
+      "expected_answer": "The skill falls back to `llms.txt` (`https://aistudio.google.com/llms.txt`).",
+      "gold_source_id": "gemini-doc-01",
+      "gold_page": 1,
+      "evidence_quote": "If your agent does not have the MCP server installed, the skill falls back to [`llms.txt`](https://aistudio.google.com/llms.txt).",
+      "filter": null
+    },
+    {
+      "id": "q20",
+      "split": "test",
+      "type": "metadata_filter",
+      "question": "In the tools_and_agents section, what is the default outbound network access policy for managed agents in their Linux sandbox, and how can you restrict it?",
+      "expected_answer": "By default, environments have unrestricted outbound network access; you can restrict outbound traffic to specific domains or wildcard patterns using a `network` allowlist.",
+      "gold_source_id": "gemini-doc-27",
+      "gold_page": 27,
+      "evidence_quote": "By default, environments have unrestricted outbound network access. Use a\n`network` allowlist to restrict outbound traffic to specific domains or\nwildcard patterns.",
+      "filter": {
+        "section": "tools_and_agents"
+      }
+    }
+  ]
+}

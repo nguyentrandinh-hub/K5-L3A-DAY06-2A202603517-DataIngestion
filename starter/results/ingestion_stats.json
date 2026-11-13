@@ -1,0 +1,50 @@
+{
+  "provider": "openrouter",
+  "model_name": "openai/text-embedding-3-small",
+  "dimensions": 1536,
+  "metric": "cosine",
+  "total_tokens": 838205,
+  "total_cost_usd": 0.016764,
+  "idempotency_check": {
+    "strategy": "A",
+    "count_before_reingest": 3695,
+    "count_after_reingest": 3695,
+    "passed": true
+  },
+  "strategies": {
+    "A": {
+      "chunk_count": 3695,
+      "total_chars": 1831789,
+      "min_len": 55,
+      "avg_len": 495.7,
+      "max_len": 500,
+      "ingest_seconds": 219.92,
+      "query_seconds": 1.455,
+      "embed_tokens": 446332,
+      "cost_usd": 0.008927
+    },
+    "B": {
+      "chunk_count": 2630,
+      "total_chars": 1629422,
+      "min_len": 10,
+      "avg_len": 619.6,
+      "max_len": 800,
+      "ingest_seconds": 185.08,
+      "query_seconds": 1.229,
+      "embed_tokens": 391389,
+      "cost_usd": 0.007828
+    },
+    "C": {
+      "chunk_count": 2630,
+      "total_chars": 1629422,
+      "min_len": 10,
+      "avg_len": 619.6,
+      "max_len": 800,
+      "ingest_seconds": 2.71,
+      "query_seconds": 0.965,
+      "embed_tokens": 0,
+      "cost_usd": 0.0,
+      "note": "Reused B chunks & vectors; added SQL metadata filter at query time"
+    }
+  }
+}

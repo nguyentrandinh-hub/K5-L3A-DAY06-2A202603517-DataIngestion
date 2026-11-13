@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed_size,500,50,"document_id,source,page,section,title,url",none,openrouter:openai/text-embedding-3-small (1536d),"Baseline fixed-size chunking; de bi cat giua cau/tu lam giam coherence va hit rate.",3/15 (20.0%),5/15 (33.3%),2/5 (40.0%),2/5 (40.0%),3695 chunks; ingest 219.92s; query 1.455s; cost $0.008927
+B,by_paragraph_heading,800 (max),0,"document_id,source,page,section,title,url",none,openrouter:openai/text-embedding-3-small (1536d),"Chunk theo heading/doan giu tron ngu canh va y nghia, giam so chunk va tang Hit@1/Hit@3.",7/15 (46.7%),12/15 (80.0%),3/5 (60.0%),3/5 (60.0%),2630 chunks; ingest 185.08s; query 1.229s; cost $0.007828
+C,by_paragraph_heading,800 (max),0,"document_id,source,page,section,title,url",section (SQL WHERE),openrouter:openai/text-embedding-3-small (1536d),"Dung chung chunk B va them SQL metadata filter theo section cho cau hoi co pham vi de giam nhieu va tang toc truy van.",7/15 (46.7%),12/15 (80.0%),3/5 (60.0%),3/5 (60.0%),2630 chunks (tai dung vector B); query 0.965s; 100% filter compliance (5/5)
